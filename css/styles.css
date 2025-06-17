@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+    
+   
+}
+.first{
+    background-color: orange;
+    height: 200px;
+    width: 200px;
+    border: 10px;
+    border-style: solid;
+    border-color: black;
+    padding: 20px;
+    justify-content: left;
+}
+.second{
+    background-color: blue;
+    height: 200px;
+    width: 200px;
+    border: 20px;
+    border-color: black;
+    border-style: solid;
+    justify-self: center;
+    
+
+}
+.third{
+    background-color: green;
+    height: 200px;
+    width: 200px;
+    border: 10px;
+    border-style: solid;
+    border-color: black;
+    justify-self: right;
+
+}
