@@ -1,6 +1,6 @@
 :root{
     --red : #FA1549;
-    
+    --grey : #ccc;
 }
 @font-face {
     font-family: g-sans;
@@ -18,7 +18,7 @@ html, body {
     height: 100%;
     width: 100%;
     background-color: #000;
-    
+      scroll-behavior: smooth;
 }
 nav{
     display: flex;
@@ -74,19 +74,16 @@ nav{
   color: white;
 }
 
-.right-nav button:hover{
-    background-color: var(--red);
-    color: white;
-}
+
 
 section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 80px;              /* reduce gap */
-  margin: 4% auto;        /* center instead of % margins */
+  gap: 80px;              
+  margin: 0 auto 4% auto;        
   max-width: 1200px;
-  padding: 0 40px;        /* safe breathing space */
+  padding: 0 40px;        
 }
 .intro-text {
   max-width: 500px;
@@ -140,17 +137,124 @@ letter-spacing: 0.05em;
     background-color: transparent;
     width: 80%;
     justify-self:center ;
+    border-radius: 10px;
+    
     border: solid var(--red) 2px;
 }
 
+#about{
+  margin-top: 60px;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+#about .left p{
+     font-size: 1.2rem;
+    font-weight: normal;
+    color: #ccc;
+    max-width: 1000px;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+}
 
 
+#project{
+  margin-top: 60px;
+ grid-template-columns: repeat(3, 1fr);
+ gap:30px;
+}
+#project h1 {
+  grid-column: 1 / -1;
+}
+#project .box1{
+
+width: 100%;
+border: 2px solid white;
+
+padding: 5px;
+ object-fit: cover;
+}
+#project .box1 img{
+ width: 100%;
+aspect-ratio: 16 / 9;
+  height: 100%;
+    transition: transform 0.5s ease;
+ transform: scale(0.95);
+
+}
+#project .box1 img:hover{
+transform: scale(1);
+
+}
+ .details{
+  padding: 10px;
+}
+.details a{
+ text-decoration: none;
+ font-size: 1.5rem;
+ font-weight: bold;
+}
+
+.details a:hover{
+  color: var(--red);
+ 
+}
+
+.details p{
+   line-height: 1.5;
+  color: var(--grey);
+}
+
+.details ul{
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+.details ul li{
+  margin-top: 10px;
+  background-color: #FA1549;
+  padding: 5px;
+  
+}
+#project .box2 {
+width: 100%;
+border: 2px solid white;
+padding: 5px;
+ object-fit: cover;
+}
+#project .box2 img{
+ width: 100%;
+aspect-ratio: 16 / 9;
+  height: 100%;
+    transition: transform 0.5s ease;
+ transform: scale(0.95);
+
+}
+#project .box2 img:hover{
+transform: scale(1);
+
+}
+#project .box3{
+width: 100%;
+border: 2px solid white;
+padding: 5px;
+ object-fit: cover;
+}
+
+#project .box3 img{
+ width: 100%;
+aspect-ratio: 16 / 9;
+  height: 100%;
+    transition: transform 0.5s ease;
+ transform: scale(0.95);
+
+}
 
 
+#project .box3 img:hover{
+transform: scale(1);
 
-
-
-
+}
 
 
 @media (max-width:600px) {
@@ -185,4 +289,7 @@ letter-spacing: 0.05em;
   height:auto;
   object-fit: cover; /* magic line */
 }
+ #project {
+    grid-template-columns: 1fr;
+  }
 }
