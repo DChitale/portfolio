@@ -157,7 +157,34 @@ letter-spacing: 0.05em;
     margin-bottom: 1.2rem;
 }
 
+#about ul{
+  list-style: none;
+}
+#about .sk{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  
+}
+#project .box1,
+#project .box2,
+#project .box3 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
+.sk li{
+  display: flex;
+  font-weight: bold;
+  margin-top: 15px;
+  background-color: var(--red);
+    padding: 10px;
+    cursor: pointer;
+}
+.sk li:hover{
+  background-color: #d1103d;
+}
 #project{
   margin-top: 60px;
  grid-template-columns: repeat(3, 1fr);
@@ -255,6 +282,9 @@ aspect-ratio: 16 / 9;
 transform: scale(1);
 
 }
+#contact {
+  margin-top: 20px;
+}
 #contact ul {
   display: flex;
   justify-content: space-evenly;
@@ -337,4 +367,5 @@ transform: scale(1);
   #contact ul{
     margin-top: 30px;
   }
+
 }
