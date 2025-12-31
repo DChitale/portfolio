@@ -2,16 +2,14 @@
     --red : #FA1549;
     --grey : #ccc;
 }
-@font-face {
-    font-family: g-sans;
-    src: url(GoogleSans-VariableFont_GRAD\,opsz\,wght.ttf);
-}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   font-family: "g-sans", sans-serif;
+   font-family: "Inter", sans-serif;
     color: white;
+    cursor: none;
 }
 
 html, body {
@@ -20,6 +18,25 @@ html, body {
     background-color: #000;
       scroll-behavior: smooth;
 }
+
+.cursor {
+  position: fixed;          /* THIS WAS MISSING */
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: #FA1549 solid 2px;
+  transition: all linear 0.1s;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+
+
 nav{
     display: flex;
     justify-content: space-between;
@@ -46,7 +63,7 @@ nav{
 }
 .right-nav ul{
     list-style: none;
-    cursor: pointer;
+ /* cursor: pointer; */
     display: flex;
     gap: 30px;
 }
