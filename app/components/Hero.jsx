@@ -28,7 +28,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="lg:h-full h-screen">
+    <div className="min-h-screen lg:h-full ">
       <div
         ref={cursor}
         className="hidden lg:block lg:w-10 lg:h-10 border-2 border-[#FB164A] rounded-full fixed top-0 left-0 pointer-events-none z-50"
@@ -75,7 +75,7 @@ const Hero = () => {
           </div>
          
         </div>
-        <div className="h-60 flex justify-center items-center">
+        <div className="mt-20 lg:mt-0 md:mt-0 h-60 flex justify-center items-end lg:items-center ">
           <Mouse size={68} strokeWidth={1}/>
         </div>
       </div>
