@@ -57,7 +57,7 @@ const Hero = () => {
           </h3>
 
           <div className="flex gap-4 mt-5 items-center">
-            <button
+            <a href="https://ik.imagekit.io/dchitale/Dhananjay_Chitale_Resume.pdf" target="_blank" rel="noopener noreferrer"><button
               ref={resumebtn}
               onMouseEnter={() =>
                 gsap.to(resumebtn.current, { color: "#FB164A", duration: 0.5 })
@@ -68,7 +68,7 @@ const Hero = () => {
               className="border border-black rounded-4xl p-3 text-[20px]"
             >
               Resume
-            </button>
+            </button></a>
             <Link href="/contact">
               <p className="hover:underline text-2xl">Contact Me</p>
             </Link>
