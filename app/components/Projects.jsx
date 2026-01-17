@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -26,18 +27,18 @@ const Projects = () => {
   ];
 
   return (
-    <div className="w-full min-h-screen p-5 lg:px-24 lg:py-10 bg-gray-200">
-      <h1 className="font-medium text-5xl mb-6">Projects</h1>
+    <div className="w-full min-h-screen p-5 lg:px-24 lg:py-10 ">
+      <h1 className="font-medium text-3xl lg:text-5xl mb-6">Projects</h1>
 
-      <div className="flex gap-6 flex-wrap">
+      <div className="flex gap-6 flex-wrap justify-center mb-10">
         {projects.map((project, index) => (
           <div
             key={index}
-            className="border bg-gray-300 p-4 w-100"
+            className="border bg-gray-50 p-4 w-100"
           >
             <div className="h-70  mb-4">
               <img
-                className="object-cover rounded h-full w-full"
+                className="object-cover h-full border w-full"
                 src={project.imageUrl}
                 alt={project.title}
               />
@@ -58,11 +59,13 @@ const Projects = () => {
                 className="text-blue-600 mt-2 inline-block"
               >
                 Link
+                  
               </a>
             )}
           </div>
         ))}
       </div>
+      <hr />
     </div>
   );
 };

@@ -11,8 +11,8 @@ const Contact = () => {
   const mail = useRef();
 
   return (
-    <div className="p-3">
-      <h1 className="font-medium text-4xl mb-3">Contact</h1>
+    <div className="w-full  p-5 lg:px-24 lg:py-10">
+      <h1 className="font-medium text-3xl lg:text-5xl mb-3">Contact</h1>
       <div>
         <form action="/">
         
