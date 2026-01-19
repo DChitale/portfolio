@@ -5,6 +5,7 @@ const About = () => {
     <div className=" w-full lg:min-h-screen p-5 lg:px-24 lg:py-10  overflow-x-hidden">
       <h1 className="font-medium text-3xl lg:text-5xl mb-6">About Me</h1>
       <div className="mb-8 lg:mb-20">
+        <div className="hidden lg:flex lg:block lg:justify-between lg:items-center">
         <div className="text lg:text-2xl lg:w-[60%] space-y-6 lg:px-10">
           <h2>
             I’m Dhananjay Chitale, a computer science undergraduate with a
@@ -23,6 +24,15 @@ const About = () => {
             and building projects that are scalable, efficient, and
             user-focused.
           </h2>
+        </div>
+        <div>
+          <svg className="h-80 lg:mr-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
+            <path
+              d="M160 160h160v160H160zM0 320h160v160H0zM0 0h160v160H0zM320 320h160v160H320zM320 0h160v160H320z"
+              fill="#F9CD2F"
+            ></path>
+          </svg>
+        </div>
         </div>
         <div>
           <h1 className="underline text-2xl lg:text-4xl mt-6 mb-6">Skills</h1>
