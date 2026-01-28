@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
 import { Mouse } from "lucide-react";
 import Link from "next/link";
@@ -11,20 +11,8 @@ const Hero = () => {
   const resumebtn = useRef(null);
   const scroller = useRef();
 
-  useEffect(() => {
-    const moveCursor = (e) => {
-      gsap.to(cursor.current, {
-        x: e.clientX - 12,
-        y: e.clientY - 12,
-        duration: 0.15,
-        ease: "power3.out",
-      });
-    };
-
-    window.addEventListener("mousemove", moveCursor);
-    return () => window.removeEventListener("mousemove", moveCursor);
-  }, []);
-
+ 
+  
   return (
     <div className="min-h-full mb-5 w-full overflow-hidden lg:mb-0 lg:h-full  ">
       <div className=" lg:flex lg:justify-around lg:items-center h-full px-5 lg:px-10 py-10 lg:py-0">
