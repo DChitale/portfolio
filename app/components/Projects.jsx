@@ -1,71 +1,150 @@
-import React from "react";
-import { Link } from 'lucide-react';
+'use client';
+
+import React, { useEffect, useRef } from "react";
+import { ExternalLink } from 'lucide-react';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const Projects = () => {
+  const containerRef = useRef(null);
+  const cardsRef = useRef([]);
+
   const projects = [
     {
       title: "KrishiMitra 2.0",
-      imageUrl:
-        "https://ik.imagekit.io/dchitale/Portfolio/KrishiMitra%202.0.jpg",
-      description: "A modern AI-powered agricultural platform designed to empower farmers with data-driven insights. It offers smart features like personalized crop recommendations, disease detection from images, weather monitoring, and future price forecasting.",
-      project_link: "https://krishi-mitra-2.vercel.app/"
+      imageUrl: "https://ik.imagekit.io/dchitale/Portfolio/KrishiMitra%202.0.jpg",
+      description: "A modern AI-powered agricultural platform designed to empower farmers with data-driven insights. It offers smart features like personalized crop recommendations, disease detection, and future price forecasting.",
+      project_link: "https://krishi-mitra-2.vercel.app/",
+      tags: ["React", "AI", "Node.js"]
     },
-     {
+    {
       title: "Shakti-Exchange",
-      imageUrl:
-        "https://ik.imagekit.io/dchitale/Portfolio/Shakti-Exchange%20(1).jpg",
-      description: "A decentralized peer-to-peer energy trading platform that enables producers and consumers to trade energy directly using blockchain smart contracts. The platform features a responsive web dashboard for creating offers, matching trades, and settling transactions in a trustless manner.",
-      project_link: "https://shakti-exchange.vercel.app/"
-    }, {
-      
-      title: "Shakti-Exchange",
-      imageUrl:
-        "https://ik.imagekit.io/dchitale/Portfolio/Social-Guard.jpg",
-      description: "A Social Engineering Attack Simulator designed to help organizations strengthen their cybersecurity posture by simulating realistic attack scenarios, training employees, and tracking performance with detailed analytics.",
-      project_link: "https://social-guard-rouge.vercel.app/"
+      imageUrl: "https://ik.imagekit.io/dchitale/Portfolio/Shakti-Exchange%20(1).jpg",
+      description: "A decentralized peer-to-peer energy trading platform that enables producers and consumers to trade energy directly using blockchain smart contracts.",
+      project_link: "https://shakti-exchange.vercel.app/",
+      tags: ["Vite", "Solidity", "Tailwind"]
+    },
+    {
+      title: "Social-Guard",
+      imageUrl: "https://ik.imagekit.io/dchitale/Portfolio/Social-Guard.jpg",
+      description: "A Social Engineering Attack Simulator designed to help organizations strengthen their cybersecurity posture by simulating realistic attack scenarios.",
+      project_link: "https://social-guard-rouge.vercel.app/",
+      tags: ["Next.js", "Security", "GSAP"]
     }
   ];
 
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    cardsRef.current.forEach((card, index) => {
+      // Entrance animation
+      gsap.fromTo(card,
+        { opacity: 20, y: 100 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 90%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Stacking scaling effect: current card shrinks slightly as next one covers it
+      if (index < projects.length - 1) {
+        gsap.to(card, {
+          scale: 0.9,
+          opacity: 0.85,
+          scrollTrigger: {
+            trigger: cardsRef.current[index + 1],
+            start: "top 85%",
+            end: "top 25%",
+            scrub: true,
+          }
+        });
+      }
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
+  }, [projects.length]);
+
   return (
-    <div className="w-full min-h-screen p-5 lg:px-24 lg:py-10 ">
-      <h1 className="font-medium text-3xl lg:text-5xl mb-6">Projects</h1>
-
-      <div className="flex gap-6 flex-wrap justify-center mb-10">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="border bg-gray-50 p-4 w-100"
-          >
-            <div className="h-70  mb-4">
-              <img
-                className="object-cover h-full border w-full"
-                src={project.imageUrl}
-                alt={project.title}
-              />
-            </div>
-
-            <h1 className="text-2xl font-medium">
-              {project.title}
-            </h1>
-            <h2 className="text-xl text-gray-700">
-              {project.description}
-            </h2>
-
-            {project.project_link && (
-              <a
-                href={project.project_link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 mt-2 inline-block"
-              >
-                Link
-                  
-              </a>
-            )}
+    <div ref={containerRef} className="w-full py-20 px-6 md:px-12 lg:px-24 bg-[#FFFBEC]">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+          <div>
+            <span className="text-[#FB164A] font-medium tracking-widest uppercase text-sm mb-2 block">My Work</span>
+            <h2 className="text-4xl md:text-6xl font-display font-medium text-[#111]">Projects</h2>
           </div>
-        ))}
+          <p className="text-gray-600 max-w-md text-lg italic">
+            "Design is not just what it looks like and feels like. Design is how it works."
+          </p>
+        </div>
+
+        <div className="relative flex flex-col gap-10 md:gap-20">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              ref={el => cardsRef.current[index] = el}
+              className="sticky top-28 md:top-36 w-full mb-10 group"
+              style={{
+                zIndex: index + 1,
+              }}
+            >
+              <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-white shadow-2xl transition-all duration-500 hover:shadow-black/5 flex flex-col lg:flex-row h-auto lg:h-[500px]">
+                {/* Image Section - Black & White by default */}
+                <div className="w-full lg:w-1/2 h-64 lg:h-full overflow-hidden lg:grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out">
+                  <img
+                    className="object-cover w-full h-full scale-100 group-hover:scale-105 transition-transform duration-700"
+                    src={project.imageUrl}
+                    alt={project.title}
+                  />
+                </div>
+
+                {/* Content Section */}
+                <div className="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col justify-between bg-white">
+                  <div>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.tags.map((tag, i) => (
+                        <span key={i} className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium uppercase tracking-wider italic">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-3xl lg:text-5xl font-display font-medium text-[#111] mb-6 leading-tight">
+                      {project.title}
+                    </h3>
+                    <p className="text-lg text-gray-600 mb-8 line-clamp-4 lg:line-clamp-none italic">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-6">
+                    <a
+                      href={project.project_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn flex items-center gap-2 text-[#111] font-bold text-lg uppercase tracking-widest hover:text-[#FB164A] transition-colors"
+                    >
+                      View Live
+                      <ExternalLink className="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-      <hr />
     </div>
   );
 };

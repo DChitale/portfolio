@@ -5,11 +5,11 @@ import Contact from "./components/Contact";
 
 export default function Home() {
   return (
-    <>
+    <main className="pt-20">
       <section id="home"><Hero /></section>
       <section id="projects"><Projects /></section>
       <section id="about"><About /></section>
       <section id="contact"><Contact /></section>
-    </>
+    </main>
   );
 }
