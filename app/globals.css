@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+   --font-display: "MediaSans", sans-serif;
+}
+
+
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@font-face {
+  font-family: "MediaSans" ;
+  src: url("/fonts/mediasans.otf") format("opentype");
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #FFFBEC;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 0.5px #111;
+  color: transparent;
+}
+
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* ===== Skills Horizontal Scroll ===== */
+
+.skills-marquee {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animation on hover */
+.skills-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .skills-marquee {
+    gap: 1.25rem;
+    animation-duration: 40s;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .skills-marquee {
+    animation: none;
+  }
+}
