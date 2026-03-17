@@ -1,9 +1,19 @@
 
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import Nav from "./components/Nav";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const mediaSans = localFont({
+  src: "../public/fonts/mediasans.otf",
+  variable: "--font-mediasans",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Portfolio",
@@ -12,7 +22,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${mediaSans.variable}`}>
       <body
         className={` bg-[#FFFBEC] ${inter.className} antialiased`}
       
