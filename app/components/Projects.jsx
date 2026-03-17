@@ -13,29 +13,37 @@ const Projects = () => {
   const containerRef = useRef(null);
   const cardsRef = useRef([]);
 
-  const projects = [
-    {
-      title: "KrishiMitra 2.0",
-      imageUrl: "https://ik.imagekit.io/dchitale/Portfolio/KrishiMitra%202.0.jpg",
-      description: "A modern AI-powered agricultural platform designed to empower farmers with data-driven insights. It offers smart features like personalized crop recommendations, disease detection, and future price forecasting.",
-      project_link: "https://krishi-mitra-2.vercel.app/",
-      tags: ["React", "AI", "Node.js"]
-    },
-    {
-      title: "Shakti-Exchange",
-      imageUrl: "https://ik.imagekit.io/dchitale/Portfolio/Shakti-Exchange%20(1).jpg",
-      description: "A decentralized peer-to-peer energy trading platform that enables producers and consumers to trade energy directly using blockchain smart contracts.",
-      project_link: "https://shakti-exchange.vercel.app/",
-      tags: ["Vite", "Solidity", "Tailwind"]
-    },
-    {
-      title: "Social-Guard",
-      imageUrl: "https://ik.imagekit.io/dchitale/Portfolio/Social-Guard.jpg",
-      description: "A Social Engineering Attack Simulator designed to help organizations strengthen their cybersecurity posture by simulating realistic attack scenarios.",
-      project_link: "https://social-guard-rouge.vercel.app/",
-      tags: ["Next.js", "Security", "GSAP"]
-    }
-  ];
+ const projects = [
+  {
+    title: "KrishiMitra 2.0",
+    imageUrl: "https://ik.imagekit.io/dchitale/Portfolio/KrishiMitra%202.0.jpg",
+    description: "What if farmers had an AI advisor in their pocket? KrishiMitra 2.0 brings smart crop recommendations, real-time disease detection, and future price forecasting to agriculture — bridging the gap between data science and the fields.",
+    project_link: "https://krishi-mitra-2.vercel.app/",
+    tags: ["React", "AI", "Node.js"]
+  },
+  {
+    title: "Shakti-Exchange",
+    imageUrl: "https://ik.imagekit.io/dchitale/Portfolio/Shakti-Exchange%20(1).jpg",
+    description: "Energy trading, but without the middlemen. Shakti-Exchange is a decentralized P2P platform where producers and consumers trade energy directly via blockchain smart contracts — rethinking how power flows in a Web3 world.",
+    project_link: "https://shakti-exchange.vercel.app/",
+    tags: ["Vite", "Solidity", "Tailwind"]
+  },
+ 
+ {
+  title: "HexNotes",
+  imageUrl: "https://ik.imagekit.io/dchitale/Portfolio/Hex-Notes.jpg",
+  description: "A personal tech blog with a hacker's mindset. HexNotes dives deep into cybersecurity concepts, tools, and findings — written for curious minds who like to understand how things break and how to fix them.",
+  project_link: "https://hexnotes.vercel.app/",
+  tags: ["React", "MongoDB", "Node.js"]
+},
+ {
+    title: "Social-Guard",
+    imageUrl: "https://ik.imagekit.io/dchitale/Portfolio/Social-Guard.jpg",
+    description: "How vulnerable is your organization to social engineering? Social-Guard simulates realistic attack scenarios — phishing, pretexting, and more — to expose weaknesses before real attackers do.",
+    project_link: "https://social-guard-rouge.vercel.app/",
+    tags: ["Next.js", "Security", "GSAP"]
+  },
+];
 
   useEffect(() => {
     if (!containerRef.current) return;
