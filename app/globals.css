@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-display: "MediaSans", sans-serif;
+  --font-display: var(--font-mediasans), sans-serif;
 }
 
 
@@ -16,10 +16,7 @@
   }
 }
 
-@font-face {
-  font-family: "MediaSans";
-  src: url("/fonts/mediasans.otf") format("opentype");
-}
+
 
 
 html,
