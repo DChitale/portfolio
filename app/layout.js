@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import Nav from "./components/Nav";
 import "./globals.css";
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
       >
         <Nav></Nav>
      {children}
+        <Analytics />
       </body>
     </html>
   );
