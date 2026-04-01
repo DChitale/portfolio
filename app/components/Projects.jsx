@@ -36,7 +36,15 @@ const Projects = () => {
   project_link: "https://hexnotes.vercel.app/",
   tags: ["React", "MongoDB", "Node.js"]
 },
- {
+ 
+  {
+    title:"DeepRealm",
+    imageUrl:"https://ik.imagekit.io/dchitale/Portfolio/DeepRealm.jpg",
+    description:"DeepRealm is an immersive ocean exploration web experience that guides users from the Sunlight Zone to the deepest Hadal trenches with cinematic storytelling and smooth interactions.",
+    project_link:"https://deeprealm.vercel.app/",
+    tags:["React","three.js","GSAP"]
+  },
+  {
     title: "Social-Guard",
     imageUrl: "https://ik.imagekit.io/dchitale/Portfolio/Social-Guard.jpg",
     description: "How vulnerable is your organization to social engineering? Social-Guard simulates realistic attack scenarios — phishing, pretexting, and more — to expose weaknesses before real attackers do.",
